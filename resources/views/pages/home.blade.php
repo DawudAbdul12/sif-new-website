@@ -714,7 +714,7 @@
       <img src="https://sifinghana.org/backend/images/uploads/_ENN6117.jpg1742893405.jpg" alt="SIF project site — community and contractors" data-fallback loading="eager">
     </div>
     <div class="hero-slide">
-      <img src="https://sifinghana.org/backend/images/uploads/SIF%20NEW%20PROJECT.jpg1750682497.jpg" alt="GWYESCO programme launch" data-fallback loading="lazy">
+      <img src="/images/gwyesco-launch.jpg" alt="GWYESCO programme launch" data-fallback loading="lazy">
     </div>
     <div class="hero-slide">
       <img src="https://sifinghana.org/backend/images/uploads/afigya%20kwabre%20irdp%202.jpg1742825153.jpg" alt="IRDP II rural infrastructure project" data-fallback loading="lazy">
@@ -948,7 +948,7 @@
     {{-- Flagship card --}}
     <a href="/projects/gwyesco" class="project-card-featured reveal" style="text-decoration:none;display:grid;">
       <div class="pcf-image">
-        <img src="https://sifinghana.org/backend/images/uploads/SIF%20NEW%20PROJECT.jpg1750682497.jpg" alt="GWYESCO programme launch" data-fallback loading="lazy">
+        <img src="/images/gwyesco-launch.jpg" alt="GWYESCO programme launch" data-fallback loading="lazy">
         <div class="pcf-image-overlay"></div>
         <div class="pcf-flagship">Flagship Programme</div>
         <span class="status new" style="top:auto;bottom:20px;left:20px;">New &middot; Launched 2026</span>
@@ -1137,7 +1137,7 @@
     <div class="news-editorial-grid">
       <a class="news-feature-card reveal" href="https://www.myjoyonline.com/ghana-launches-landmark-women-and-youth-employment-programme-to-create-over-30000-jobs/" target="_blank" rel="noopener">
         <div class="nfc-image">
-          <img src="https://sifinghana.org/backend/images/uploads/SIF%20NEW%20PROJECT.jpg1750682497.jpg" alt="" data-fallback loading="lazy">
+          <img src="/images/gwyesco-launch.jpg" alt="" data-fallback loading="lazy">
           <span class="nfc-cat">Programme Update</span>
         </div>
         <div class="nfc-body">
