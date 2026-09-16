@@ -137,13 +137,60 @@
   /* ---------- cookie consent ---------- */
   var cookieBanner = document.getElementById('cookieBanner');
   if(cookieBanner){
+    var storageKey = 'sif-cookie-consent';
+    var consentMaxAge = 30 * 24 * 60 * 60 * 1000;
     var dismissed = false;
-    setTimeout(function(){ if(!dismissed) cookieBanner.classList.add('show'); }, 900);
+    function readCookieConsent(){
+      try {
+        if(!window.localStorage) return null;
+        var raw = window.localStorage.getItem(storageKey);
+        if(!raw) return null;
+        var saved = JSON.parse(raw);
+        if(!saved.expiresAt || Date.now() > saved.expiresAt){
+          window.localStorage.removeItem(storageKey);
+          return null;
+        }
+        return saved.choice || null;
+      } catch(e) {
+        try {
+          if(window.localStorage) window.localStorage.removeItem(storageKey);
+        } catch(err) {}
+        return null;
+      }
+    }
+    try {
+      dismissed = !!readCookieConsent();
+    } catch(e) {
+      dismissed = false;
+    }
+    function setBannerVisible(isVisible){
+      cookieBanner.classList.toggle('show', isVisible);
+      cookieBanner.setAttribute('aria-hidden', isVisible ? 'false' : 'true');
+      document.body.classList.toggle('has-cookie-banner', isVisible);
+    }
+    setTimeout(function(){
+      if(!dismissed){
+        setBannerVisible(true);
+      }
+    }, 900);
     var accept = document.getElementById('cookieAccept');
     var decline = document.getElementById('cookieDecline');
-    function hideCookie(){ dismissed = true; cookieBanner.classList.remove('show'); }
-    if(accept) accept.addEventListener('click', hideCookie);
-    if(decline) decline.addEventListener('click', hideCookie);
+    function hideCookie(choice){
+      dismissed = true;
+      try {
+        if(window.localStorage){
+          window.localStorage.setItem(storageKey, JSON.stringify({
+            choice: choice,
+            savedAt: Date.now(),
+            expiresAt: Date.now() + consentMaxAge
+          }));
+        }
+      } catch(e) {}
+      setBannerVisible(false);
+    }
+    if(dismissed) setBannerVisible(false);
+    if(accept) accept.addEventListener('click', function(){ hideCookie('accepted'); });
+    if(decline) decline.addEventListener('click', function(){ hideCookie('declined'); });
   }
 
   /* ---------- accordion (FAQ) ---------- */
@@ -203,4 +250,3 @@
   }
 
 })();
-

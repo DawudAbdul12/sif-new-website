@@ -125,6 +125,19 @@ p{margin:0;}
 .btn-outline.on-dark:hover{border-color:#fff;background:rgba(255,255,255,0.08);}
 .btn-red{background:var(--red);color:#fff;}
 .btn-red:hover{background:#8F3120;transform:translateY(-2px);}
+.sticky-apply-cta{
+  position:fixed;right:20px;bottom:20px;z-index:2000;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:0;padding:12px 24px;border-radius:30px;
+  background:#28a745;color:#fff;font-family:var(--font-head);
+  font-size:15px;font-weight:700;box-shadow:0 4px 8px rgba(0,0,0,.2);
+  border:0;white-space:nowrap;text-decoration:none;cursor:pointer;
+  transition:background-color .3s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease);
+}
+.sticky-apply-cta:hover{
+  background:#218838;text-decoration:none;transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+}
 .btn-ghost{color:var(--forest);font-weight:600;display:inline-flex;align-items:center;gap:6px;}
 .btn-ghost svg{width:14px;height:14px;transition:transform .18s var(--ease);}
 .btn-ghost:hover svg{transform:translateX(3px);}
@@ -798,6 +811,12 @@ main{min-width:0;}
     --radius-m:14px;
     --radius-l:18px;
   }
+  .sticky-apply-cta{
+    left:auto;right:8px;bottom:15px;transform:none;width:112px;
+    padding:10px 14px;font-size:14px;
+  }
+  body.has-cookie-banner .sticky-apply-cta{bottom:182px;}
+  .sticky-apply-cta:hover{transform:translateY(-2px);}
   .container,.container-narrow{padding-left:20px;padding-right:20px;}
   .section-head{margin-bottom:30px;}
   .section-head h2{font-size:clamp(25px,8vw,34px);line-height:1.12;}

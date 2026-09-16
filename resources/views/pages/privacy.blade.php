@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Privacy Policy | SIF Ghana')
-@section('description', 'Privacy Policy for the Social Investment Fund Ghana website.')
+@section('description', 'Read the Social Investment Fund Ghana privacy policy, including how the website handles personal data, cookies and accessibility preferences.')
 
 @section('content')
 <section class="page-hero">

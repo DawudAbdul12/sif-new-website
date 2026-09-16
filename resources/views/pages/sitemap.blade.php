@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Sitemap | SIF Ghana')
-@section('description', 'Full sitemap of the Social Investment Fund Ghana website.')
+@section('description', 'Use the Social Investment Fund Ghana sitemap to find key website pages, programmes, resources, contacts and policy information.')
 
 @section('content')
 <section class="page-hero">

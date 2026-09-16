@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Board of Directors | The Social Investment Fund Ghana')
-@section('description', 'Learn about the Board of Directors of the Social Investment Fund Ghana and its role in strategic oversight, accountability and governance.')
+@section('title', 'Board of Directors | SIF Ghana Governance')
+@section('description', 'Meet the Board of Directors of the Social Investment Fund Ghana and learn how they guide strategic oversight, accountability and institutional governance.')
 
 @push('head')
 <style>

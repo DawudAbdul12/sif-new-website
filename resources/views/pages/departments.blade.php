@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Departments & Units | SIF Ghana')
-@section('description', 'Explore the departments, units, and zonal offices of the Social Investment Fund Ghana.')
+@section('title', 'Departments, Units and Zonal Offices | SIF Ghana')
+@section('description', 'Explore the departments, operational units and zonal offices that support Social Investment Fund Ghana programmes across all regions of Ghana.')
 
 @push('head')
 <style>

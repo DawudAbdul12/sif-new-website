@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Submit a Complaint | SIF Ghana')
-@section('description', 'Submit a complaint or feedback to the Social Investment Fund Ghana using our secure online form.')
+@section('title', 'Submit or Track a Complaint | SIF Ghana')
+@section('description', 'Submit a complaint, send feedback or track a concern related to Social Investment Fund Ghana programmes through the secure online form.')
 
 @section('content')
 <section class="page-hero">

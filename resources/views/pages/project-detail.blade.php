@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
-@section('title', 'Project Detail | SIF Ghana')
-@section('description', 'Detailed information about Social Investment Fund Ghana programmes and projects.')
+@php
+  $project = $project ?? config('sif_projects.projects.' . ($slug ?? ''));
+@endphp
+
+@section('title', $project['seo_title'] ?? 'Project Details | SIF Ghana Programmes')
+@section('description', $project['seo_description'] ?? 'View detailed information about Social Investment Fund Ghana programmes, including objectives, beneficiaries, outcomes, regions and project documents.')
+@section('seo_image', isset($project['image']) ? (str_starts_with($project['image'], 'http') ? $project['image'] : asset(ltrim($project['image'], '/'))) : asset('images/sif-og-image.png'))
 
 @push('head')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -53,7 +58,7 @@
 @section('content')
 <section class="page-hero" style="padding-bottom:0;">
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 2 4 4-4 4"/></svg><a href="/projects">Projects</a><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 2 4 4-4 4"/></svg><span class="current" id="bcProjectName">Project</span></div>
+    <div class="breadcrumb"><a href="/">Home</a><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 2 4 4-4 4"/></svg><a href="/projects">Projects</a><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m4 2 4 4-4 4"/></svg><span class="current" id="bcProjectName">{{ $project['name'] ?? 'Project' }}</span></div>
   </div>
 </section>
 
@@ -67,23 +72,31 @@
     <div id="projectDetail">
       <div class="pimg pd-hero-img" id="pdHeroImgWrap">
         <span class="status" id="pdStatus"></span>
-        <img id="pdHeroImg" src="" alt="" data-fallback loading="eager">
+        <img id="pdHeroImg" src="{{ $project['image'] ?? '' }}" alt="{{ $project['name'] ?? 'SIF project' }}" data-fallback loading="eager">
       </div>
 
       <div class="pd-layout">
         <div class="pd-main reveal">
-          <span class="pmeta" id="pdMeta"></span>
-          <h1 class="pd-title" id="pdTitle"></h1>
-          <p class="pd-summary" id="pdSummary"></p>
+          <span class="pmeta" id="pdMeta">{{ $project['name'] ?? '' }}</span>
+          <h1 class="pd-title" id="pdTitle">{{ $project['full_name'] ?? '' }}</h1>
+          <p class="pd-summary" id="pdSummary">{{ $project['summary'] ?? '' }}</p>
 
           <h3 class="pd-section-title">Objectives</h3>
-          <ul id="pdObjectives" style="display:flex;flex-direction:column;gap:10px;padding-left:0;"></ul>
+          <ul id="pdObjectives" style="display:flex;flex-direction:column;gap:10px;padding-left:0;">
+            @foreach(($project['objectives'] ?? []) as $objective)
+              <li><span>{{ $objective }}</span></li>
+            @endforeach
+          </ul>
 
           <h3 class="pd-section-title" style="margin-bottom:8px;">Beneficiaries</h3>
-          <p class="pd-body-text" id="pdBeneficiaries"></p>
+          <p class="pd-body-text" id="pdBeneficiaries">{{ $project['beneficiaries'] ?? '' }}</p>
 
           <h3 class="pd-section-title">Key Outcomes</h3>
-          <ul id="pdOutcomes" style="display:flex;flex-direction:column;gap:10px;padding-left:0;"></ul>
+          <ul id="pdOutcomes" style="display:flex;flex-direction:column;gap:10px;padding-left:0;">
+            @foreach(($project['outcomes'] ?? []) as $outcome)
+              <li><span>{{ $outcome }}</span></li>
+            @endforeach
+          </ul>
 
           <h3 class="pd-section-title" id="pdDocsHead" style="display:none;">Related Documents</h3>
           <div id="pdDocs" style="display:flex;flex-direction:column;gap:10px;"></div>
@@ -95,15 +108,19 @@
 
         <aside class="pd-aside reveal">
           <div class="pd-facts">
-            <div class="review-row"><span>Programme</span><span id="pdName"></span></div>
-            <div class="review-row"><span>Status</span><span id="pdStatusText"></span></div>
-            <div class="review-row"><span>Timeline</span><span id="pdTimeline"></span></div>
-            <div class="review-row"><span>Funder</span><span id="pdFunder"></span></div>
-            <div class="review-row"><span>Amount</span><span id="pdAmount"></span></div>
-            <div class="review-row"><span>Zone</span><span id="pdZone"></span></div>
+            <div class="review-row"><span>Programme</span><span id="pdName">{{ $project['name'] ?? '' }}</span></div>
+            <div class="review-row"><span>Status</span><span id="pdStatusText">{{ $project['status'] ?? '' }}</span></div>
+            <div class="review-row"><span>Timeline</span><span id="pdTimeline">{{ $project['timeline'] ?? '' }}</span></div>
+            <div class="review-row"><span>Funder</span><span id="pdFunder">{{ $project['funder'] ?? '' }}</span></div>
+            <div class="review-row"><span>Amount</span><span id="pdAmount">{{ $project['fund_amount'] ?? '' }}</span></div>
+            <div class="review-row"><span>Zone</span><span id="pdZone">{{ $project['zone'] ?? '' }}</span></div>
             <div style="padding-top:14px;">
               <span style="font-size:12px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em;">Regions</span>
-              <div class="pregions" style="margin-top:8px;" id="pdRegions"></div>
+              <div class="pregions" style="margin-top:8px;" id="pdRegions">
+                @foreach(($project['regions'] ?? []) as $region)
+                  <span>{{ $region }}</span>
+                @endforeach
+              </div>
             </div>
           </div>
 
@@ -213,7 +230,6 @@ function renderProjectMap(mapId, opts){
 }
 
 </script>
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   
@@ -283,8 +299,5 @@ document.addEventListener('DOMContentLoaded', function(){
   });
 });
 
-</script>
-
-</body>
 </script>
 @endpush

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Leadership | The Social Investment Fund Ghana')
-@section('description', 'Meet the Board of Directors, Chief Executive Officer, and Management Team of SIF Ghana.')
+@section('title', 'Leadership | SIF Ghana Board, CEO and Management Team')
+@section('description', 'Meet the Social Investment Fund Ghana leadership team, including the Board of Directors, Chief Executive Officer and senior management.')
 
 @push('head')
 <style>

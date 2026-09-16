@@ -73,7 +73,7 @@
   </div>
 </footer>
 
-<div class="cookie-banner" id="cookieBanner">
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie notice" aria-hidden="true">
   <p><strong style="color:var(--forest);font-family:var(--font-head);">This site uses cookies.</strong><br>We use essential cookies to keep this site secure and remember your accessibility preferences. We do not sell personal data.</p>
   <div class="ck-actions">
     <button type="button" id="cookieAccept" class="btn btn-primary btn-sm">Accept</button>

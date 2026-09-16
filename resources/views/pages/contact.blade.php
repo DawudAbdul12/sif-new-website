@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us | SIF Ghana')
-@section('description', 'Contact the Social Investment Fund Ghana — address, telephone, email, and office locations.')
+@section('title', 'Contact SIF Ghana | Address, Email and Toll-Free Line')
+@section('description', 'Contact the Social Investment Fund Ghana for enquiries, office information, email contacts, zonal locations and toll-free assistance.')
 
 @push('head')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">

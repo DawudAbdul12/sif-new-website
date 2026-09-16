@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Terms of Use | SIF Ghana')
-@section('description', 'Terms of use governing access to the Social Investment Fund Ghana website.')
+@section('description', 'Review the terms of use for accessing and using the Social Investment Fund Ghana website, content and online services.')
 
 @section('content')
 <section class="page-hero">

@@ -54,6 +54,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'seo_url' => env('SEO_URL', 'https://sifinghana.gov.gh'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Projects | SIF Ghana')
-@section('description', 'Browse all Social Investment Fund Ghana projects — active, ongoing, and completed programmes across Ghana.')
+@section('title', 'Projects and Programmes | SIF Ghana')
+@section('description', 'Browse Social Investment Fund Ghana projects and programmes, including active, ongoing and completed interventions delivered across Ghana.')
 
 @push('head')
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">

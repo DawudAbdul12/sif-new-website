@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Accessibility Statement | SIF Ghana')
-@section('description', 'SIF Ghana Accessibility Statement — our commitment to inclusive and accessible web content.')
+@section('description', 'Read the SIF Ghana accessibility statement and our commitment to inclusive, usable and accessible web content for all visitors.')
 
 @section('content')
 <section class="page-hero">

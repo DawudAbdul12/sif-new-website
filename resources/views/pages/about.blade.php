@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'About SIF | The Social Investment Fund Ghana')
-@section('description', 'Learn about the Social Investment Fund Ghana — our mandate, governance, mission, values, history and national development impact since 1998.')
+@section('title', 'About SIF Ghana | Mandate, Mission, Values and History')
+@section('description', 'Learn about the Social Investment Fund Ghana, including its mandate, governance, mission, values, history and national development impact since 1998.')
 
 @push('head')
 <style>

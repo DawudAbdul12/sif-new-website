@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://sifinghana.gov.gh/sitemap.xml

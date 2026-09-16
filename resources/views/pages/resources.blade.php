@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Resources | SIF Ghana')
-@section('description', 'Download publications, annual reports, procurement notices, and environmental & social documents from SIF Ghana.')
+@section('title', 'Resources, Reports and Publications | SIF Ghana')
+@section('description', 'Download Social Investment Fund Ghana annual reports, publications, procurement notices and environmental and social safeguard documents.')
 
 @section('content')
 <section class="page-hero">

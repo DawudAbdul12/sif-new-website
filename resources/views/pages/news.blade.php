@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'News & Media | SIF Ghana')
-@section('description', 'Latest news, press releases, and media coverage from the Social Investment Fund Ghana.')
+@section('title', 'News and Media | SIF Ghana')
+@section('description', 'Read the latest news, press releases, announcements and media updates from the Social Investment Fund Ghana.')
 
 @section('content')
 <section class="page-hero">
