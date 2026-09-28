@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 170">
+  <rect width="400" height="170" fill="#dfe3dc"/>
+  <g fill="#9aa192">
+    <circle cx="200" cy="75" r="26"/>
+    <path d="M150 115 L182 82 L212 105 L250 68 L250 130 L150 130 Z"/>
+  </g>
+  <text x="200" y="150" font-family="Montserrat, sans-serif" font-size="13" fill="#6b7166" text-anchor="middle">Replace with banner image</text>
+</svg>

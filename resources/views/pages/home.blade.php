@@ -39,8 +39,8 @@
                 z-index: 2;
                 pointer-events: none;
                 background:
-                    linear-gradient(180deg, rgba(7, 59, 42, 0.45) 0%, rgba(7, 59, 42, 0.18) 32%, rgba(7, 59, 42, 0.97) 100%),
-                    linear-gradient(105deg, rgba(7, 59, 42, 0.80) 0%, rgba(7, 59, 42, 0.04) 62%);
+                    linear-gradient(180deg, rgba(6, 16, 90, 0.38) 0%, rgba(6, 16, 90, 0.16) 34%, rgba(6, 16, 90, 0.90) 100%),
+                    linear-gradient(105deg, rgba(6, 16, 90, 0.82) 0%, rgba(6, 16, 90, 0.42) 36%, rgba(9, 167, 71, 0.18) 62%, rgba(6, 16, 90, 0.04) 100%);
             }
 
             .hero-slide {
@@ -86,7 +86,7 @@
                 font-family: var(--font-head);
                 font-size: 12px;
                 font-weight: 700;
-                color: rgba(255, 255, 255, 0.45);
+                color: rgba(255, 255, 255, 0.58);
                 letter-spacing: 0.05em;
                 display: flex;
                 align-items: baseline;
@@ -112,14 +112,15 @@
                 height: 8px;
                 border-radius: 999px;
                 padding: 0;
-                background: rgba(255, 255, 255, 0.28);
-                border: none;
+                background: rgba(255, 255, 255, 0.34);
+                border: 1px solid rgba(255, 255, 255, 0.18);
                 cursor: pointer;
-                transition: background 0.3s ease, width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                transition: background 0.3s ease, border-color 0.3s ease, width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             }
 
             .slider-dot.is-active {
                 background: var(--gold);
+                border-color: var(--gold);
                 width: 34px;
             }
 
@@ -139,8 +140,8 @@
                 height: 38px;
                 border-radius: 50%;
                 padding: 0;
-                background: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.18);
+                background: rgba(6, 16, 90, 0.26);
+                border: 1px solid rgba(255, 255, 255, 0.22);
                 color: #fff;
                 display: flex;
                 align-items: center;
@@ -153,8 +154,8 @@
             }
 
             .slider-arr:hover {
-                background: rgba(255, 255, 255, 0.18);
-                border-color: rgba(255, 255, 255, 0.42);
+                background: var(--emerald);
+                border-color: var(--emerald);
             }
 
             .slider-arr:active {
@@ -187,8 +188,8 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 9px;
-                background: rgba(214, 167, 44, 0.14);
-                border: 1px solid rgba(214, 167, 44, 0.38);
+                background: rgba(244, 196, 0, 0.14);
+                border: 1px solid rgba(244, 196, 0, 0.44);
                 border-radius: 999px;
                 padding: 6px 14px 6px 9px;
                 font-family: var(--font-head);
@@ -205,8 +206,8 @@
                 width: 22px;
                 height: 22px;
                 border-radius: 50%;
-                background: rgba(214, 167, 44, 0.22);
-                border: 1px solid rgba(214, 167, 44, 0.45);
+                background: rgba(9, 167, 71, 0.24);
+                border: 1px solid rgba(244, 196, 0, 0.52);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -247,7 +248,7 @@
                 width: 56px;
                 height: 3px;
                 border-radius: 2px;
-                background: linear-gradient(90deg, var(--gold), rgba(214, 167, 44, 0.3));
+                background: linear-gradient(90deg, var(--gold), rgba(244, 196, 0, 0.3));
                 margin: 14px 0;
             }
 
@@ -350,7 +351,7 @@
                 grid-template-columns: repeat(4, 1fr);
                 background: rgba(255, 255, 255, 0.97);
                 border-top: 3px solid var(--gold);
-                box-shadow: 0 -24px 60px rgba(7, 59, 42, 0.22);
+                box-shadow: 0 -24px 60px rgba(6, 16, 90, 0.22);
             }
 
             .hero-stat {
@@ -412,7 +413,7 @@
                 font-family: var(--font-head);
                 font-size: 320px;
                 font-weight: 800;
-                color: rgba(7, 59, 42, 0.025);
+                color: rgba(6, 16, 90, 0.025);
                 line-height: 1;
                 pointer-events: none;
                 user-select: none;
@@ -516,7 +517,7 @@
                 position: absolute;
                 left: -32px;
                 bottom: -24px;
-                background: linear-gradient(rgba(7, 59, 42, 0.78), rgba(7, 59, 42, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
+                background: linear-gradient(rgba(6, 16, 90, 0.78), rgba(6, 16, 90, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
                 border-radius: var(--radius-m);
                 box-shadow: var(--shadow-l);
                 padding: 20px 24px;
@@ -560,7 +561,7 @@
             .intro-float-badge span {
                 font-size: 10.5px;
                 font-weight: 700;
-                color: rgba(7, 59, 42, 0.7);
+                color: rgba(6, 16, 90, 0.7);
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
             }
@@ -788,7 +789,7 @@
             .pcf-image-overlay {
                 position: absolute;
                 inset: 0;
-                background: linear-gradient(to right, transparent 60%, rgba(7, 59, 42, 0.08));
+                background: linear-gradient(to right, transparent 60%, rgba(6, 16, 90, 0.08));
             }
 
             .pcf-flagship {
@@ -946,7 +947,7 @@
 
             /* ---------- IMPACT STATS — dramatic ---------- */
             .impact-section-premium {
-                background: linear-gradient(rgba(7, 59, 42, 0.78), rgba(7, 59, 42, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
+                background: linear-gradient(rgba(6, 16, 90, 0.78), rgba(6, 16, 90, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
             }
 
             .impact-section-head {
@@ -1147,11 +1148,11 @@
                 content: "";
                 position: absolute;
                 inset: 0;
-                background: linear-gradient(135deg, rgba(7, 59, 42, 0.3), transparent);
+                background: linear-gradient(135deg, rgba(6, 16, 90, 0.3), transparent);
             }
 
             .story-body-premium {
-                background: linear-gradient(rgba(7, 59, 42, 0.78), rgba(7, 59, 42, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
+                background: linear-gradient(rgba(6, 16, 90, 0.78), rgba(6, 16, 90, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
                 color: #fff;
                 padding: 56px 48px;
                 display: flex;
@@ -1164,8 +1165,8 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 7px;
-                background: rgba(214, 167, 44, 0.12);
-                border: 1px solid rgba(214, 167, 44, 0.28);
+                background: rgba(244, 196, 0, 0.12);
+                border: 1px solid rgba(244, 196, 0, 0.28);
                 border-radius: 999px;
                 padding: 6px 14px;
                 font-size: 10.5px;
@@ -1222,8 +1223,8 @@
                 display: inline-flex;
                 align-items: center;
                 gap: 8px;
-                background: rgba(8, 127, 91, 0.18);
-                border: 1px solid rgba(8, 127, 91, 0.35);
+                background: rgba(9, 167, 71, 0.18);
+                border: 1px solid rgba(9, 167, 71, 0.35);
                 border-radius: 999px;
                 padding: 9px 16px;
                 font-size: 12.5px;
@@ -1485,7 +1486,7 @@
 
             /* ---------- ACCOUNTABILITY BANNER ---------- */
             .accountability-premium {
-                background: linear-gradient(rgba(7, 59, 42, 0.78), rgba(7, 59, 42, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
+                background: linear-gradient(rgba(6, 16, 90, 0.78), rgba(6, 16, 90, 0.78)), var(--sif-pattern) center/cover no-repeat, var(--forest);
                 border-radius: var(--radius-l);
                 overflow: hidden;
                 position: relative;
@@ -1587,7 +1588,7 @@
 
             .acc-action:hover {
                 background: rgba(255, 255, 255, 0.11);
-                border-color: rgba(214, 167, 44, 0.4);
+                border-color: rgba(244, 196, 0, 0.4);
                 transform: translateY(-2px);
             }
 
@@ -1652,7 +1653,7 @@
                 background: #fff;
                 border-radius: 999px;
                 padding: 6px 6px 6px 22px;
-                box-shadow: 0 4px 24px rgba(7, 59, 42, 0.10);
+                box-shadow: 0 4px 24px rgba(6, 16, 90, 0.10);
                 border: 1.5px solid var(--line);
                 transition: border-color 0.2s, box-shadow 0.2s;
             }
@@ -1687,7 +1688,7 @@
             }
 
             .nl-pill-form button:hover {
-                background: #C2962A;
+                background: #D9AE00;
                 transform: scale(1.02);
             }
 
@@ -2283,6 +2284,11 @@
 
 
     {{-- ===================== 6. IMPACT STATISTICS ===================== --}}
+    @php
+        $impactMetrics = collect($impactMetrics ?? \App\Models\ImpactMetric::fallbackFrontendMetrics());
+        $primaryImpactMetrics = $impactMetrics->where('tier', 'primary')->values();
+        $secondaryImpactMetrics = $impactMetrics->where('tier', 'secondary')->values();
+    @endphp
     <section class="sec impact-section-premium" id="impact">
         <div class="container">
             <div class="impact-section-head reveal">
@@ -2292,42 +2298,40 @@
             </div>
 
             <div class="impact-primary reveal">
-                <div class="impact-primary-cell">
-                    <div class="impact-primary-num">
-                        <span class="prefix">US$</span><span data-count="83.5">0</span><span class="unit">M+</span>
+                @foreach($primaryImpactMetrics as $metric)
+                    <div class="impact-primary-cell">
+                        <div class="impact-primary-num">
+                            @if($metric['prefix'])
+                                <span class="prefix">{{ $metric['prefix'] }}</span>
+                            @endif
+                            <span data-count="{{ $metric['value'] }}">0</span>
+                            @if($metric['suffix'])
+                                <span class="unit">{{ $metric['suffix'] }}</span>
+                            @endif
+                        </div>
+                        <div class="impact-primary-label">{{ $metric['label'] }}</div>
+                        @if($metric['note'])
+                            <div class="impact-primary-note">{{ $metric['note'] }}</div>
+                        @endif
                     </div>
-                    <div class="impact-primary-label">Mobilised from development partners since 1998</div>
-                    <div class="impact-primary-note">AfDB &middot; OFID &middot; BADEA &middot; GoG &middot; UNDP</div>
-                </div>
-                <div class="impact-primary-cell">
-                    <div class="impact-primary-num">
-                        <span data-count="1629">0</span><span class="unit">+</span>
-                    </div>
-                    <div class="impact-primary-label">Social &amp; economic infrastructure projects delivered</div>
-                    <div class="impact-primary-note">Verified, across all 16 regions</div>
-                </div>
-                <div class="impact-primary-cell">
-                    <div class="impact-primary-num">
-                        <span data-count="1.6">0</span><span class="unit">M+</span>
-                    </div>
-                    <div class="impact-primary-label">Ghanaians reached — approximately 10% of the national poor</div>
-                    <div class="impact-primary-note">Beneficiaries supported nationwide</div>
-                </div>
+                @endforeach
             </div>
 
             <div class="impact-secondary reveal">
-                <div class="impact-secondary-cell">
-                    <div class="impact-sec-num"><span data-count="16">0</span></div>
-                    <div class="impact-sec-label">Regions covered across 4 operational zones</div>
-                </div>
-                <div class="impact-secondary-cell">
-                    <div class="impact-sec-num"><span data-count="5000">0</span><span class="unit">+</span></div>
-                    <div class="impact-sec-label">Artisans employed on project sites</div>
-                </div>
-                <div class="impact-secondary-cell">
-                    <div class="impact-sec-num"><span data-count="5">0</span></div>
-                    <div class="impact-sec-label">Government &amp; development partner relationships</div>
-                </div>
+                @foreach($secondaryImpactMetrics as $metric)
+                    <div class="impact-secondary-cell">
+                        <div class="impact-sec-num">
+                            @if($metric['prefix'])
+                                <span class="prefix">{{ $metric['prefix'] }}</span>
+                            @endif
+                            <span data-count="{{ $metric['value'] }}">0</span>
+                            @if($metric['suffix'])
+                                <span class="unit">{{ $metric['suffix'] }}</span>
+                            @endif
+                        </div>
+                        <div class="impact-sec-label">{{ $metric['label'] }}</div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -2611,12 +2615,12 @@
             projects.forEach(function(p) {
                 (p.markers || []).forEach(function(m) {
                     var color = (typeof ZONE_COLORS !== 'undefined' && ZONE_COLORS[p.zone]) ? ZONE_COLORS[p
-                        .zone] : '#087F5B';
+                        .zone] : '#09A747';
                     var icon = L.divIcon({
                         className: '',
                         html: '<div style="width:16px;height:16px;border-radius:50%;background:' +
                             color +
-                            ';border:3px solid #fff;box-shadow:0 2px 6px rgba(7,59,42,0.4);"></div>',
+                            ';border:3px solid #fff;box-shadow:0 2px 6px rgba(6,16,90,0.4);"></div>',
                         iconSize: [16, 16],
                         iconAnchor: [8, 8]
                     });
@@ -2656,7 +2660,7 @@
                 var sp = opts.singlePoint;
                 var icon2 = L.divIcon({
                     className: '',
-                    html: '<div style="width:18px;height:18px;border-radius:50%;background:#073B2A;border:3px solid #fff;box-shadow:0 2px 8px rgba(7,59,42,0.45);"></div>',
+                    html: '<div style="width:18px;height:18px;border-radius:50%;background:#06105A;border:3px solid #fff;box-shadow:0 2px 8px rgba(6,16,90,0.45);"></div>',
                     iconSize: [18, 18],
                     iconAnchor: [9, 9]
                 });

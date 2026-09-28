@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d8ddd3"/>
+      <stop offset="100%" stop-color="#bfc7b6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#g2)"/>
+  <g fill="#7d8477">
+    <circle cx="200" cy="105" r="30"/>
+    <path d="M150 150 L185 115 L215 140 L250 105 L250 170 L150 170 Z"/>
+  </g>
+  <text x="200" y="205" font-family="Montserrat, sans-serif" font-size="13" fill="#5f6558" text-anchor="middle">Replace with news photo</text>
+</svg>

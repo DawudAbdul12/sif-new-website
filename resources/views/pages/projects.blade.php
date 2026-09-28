@@ -49,7 +49,35 @@
       <button class="chip" data-status="" data-category="Community Development">Community Development</button>
     </div>
 
-    <div class="projects-grid reveal-stagger" id="projectsGrid"></div>
+    <div class="projects-grid reveal-stagger" id="projectsGrid">
+      @foreach(($frontendProjects ?? []) as $project)
+        @php
+          $statusText = match ($project['status'] ?? 'ongoing') {
+            'new' => 'New',
+            'completed' => 'Completed',
+            default => 'Ongoing',
+          };
+        @endphp
+        <article class="project-card reveal is-visible" data-status="{{ $project['status'] ?? '' }}" data-categories="{{ implode('|', $project['category'] ?? []) }}" data-regions="{{ implode('|', $project['regions'] ?? []) }}" data-name="{{ strtolower(($project['name'] ?? '').' '.($project['fullName'] ?? '')) }}">
+          <div class="pimg">
+            <span class="status {{ $project['status'] ?? 'ongoing' }}">{{ $statusText }}</span>
+            <img src="{{ $project['image'] ?? '/images/placeholder-social-infra.svg' }}" alt="{{ $project['name'] ?? 'SIF project' }}" data-fallback loading="lazy">
+          </div>
+          <div class="pbody">
+            <span class="pmeta">{{ $project['name'] ?? '' }} &middot; {{ $project['timeline'] ?? '' }}</span>
+            <h3>{{ $project['fullName'] ?? '' }}</h3>
+            <p>{{ $project['summary'] ?? '' }}</p>
+            <div class="pregions">
+              @foreach(array_slice($project['regions'] ?? [], 0, 3) as $region)
+                <span>{{ $region }}</span>
+              @endforeach
+            </div>
+            <div class="pfund">Funded by <strong>{{ $project['funder'] ?? '' }}</strong></div>
+            <a href="/projects/{{ $project['id'] ?? '' }}" class="pfoot-link">View Programme <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+      @endforeach
+    </div>
     <div id="emptyState" style="display:none;text-align:center;padding:60px 20px;color:var(--ink-soft);">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="40" height="40" style="margin:0 auto 14px;opacity:0.5;"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
       <p>No projects match your filters. Try a different search term or clear the filters.</p>
@@ -98,7 +126,11 @@
 @endsection
 
 @push('scripts')
-<script src="/js/sif-projects.js"></script>
+<script>
+var SIF_PROJECTS = @json($frontendProjects ?? []);
+var ZONE_COLORS = {a:"#D6A72C", b:"#087F5B", c:"#4F6F52", d:"#073B2A"};
+var ZONE_LABELS = {a:"Savannah Belt", b:"Forest & Transition", c:"Western Coast", d:"Eastern Seaboard"};
+</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script>
 function renderProjectMap(mapId, opts){
@@ -284,6 +316,5 @@ document.addEventListener('DOMContentLoaded', function(){
   renderProjectMap('siteMap', {listId:'mapList', legendId:'zoneLegend'});
 });
 
-</script>
 </script>
 @endpush

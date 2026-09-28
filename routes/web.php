@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages.home')->name('home');
@@ -7,13 +9,8 @@ Route::view('/about', 'pages.about')->name('about');
 Route::view('/board-of-directors', 'pages.board')->name('board');
 Route::view('/leadership', 'pages.leadership')->name('leadership');
 Route::view('/departments', 'pages.departments')->name('departments');
-Route::view('/projects', 'pages.projects')->name('projects');
-Route::get('/projects/{slug}', function ($slug) {
-    $project = config("sif_projects.projects.$slug");
-    abort_unless($project, 404);
-
-    return view('pages.project-detail', compact('slug', 'project'));
-})->name('project-detail');
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('project-detail');
 Route::view('/news', 'pages.news')->name('news');
 Route::view('/resources', 'pages.resources')->name('resources');
 Route::view('/contact', 'pages.contact')->name('contact');
@@ -44,7 +41,9 @@ Route::get('/sitemap.xml', function () {
 
     $routes = array_map(fn ($path) => $seoBaseUrl . ($path === '/' ? '' : $path), $paths);
 
-    foreach (array_keys(config('sif_projects.projects', [])) as $slug) {
+    $projectSlugs = collect(Project::publishedFrontendProjects())->pluck('id')->filter()->all();
+
+    foreach ($projectSlugs as $slug) {
         $routes[] = $seoBaseUrl . '/projects/' . $slug;
     }
 
@@ -55,3 +54,5 @@ Route::get('/sitemap.xml', function () {
 
     return response($xml, 200)->header('Content-Type', 'application/xml');
 })->name('sitemap.xml');
+
+require __DIR__.'/admin.php';

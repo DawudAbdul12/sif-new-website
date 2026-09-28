@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420">
+  <rect width="500" height="420" rx="20" fill="#f4c9c2"/>
+  <rect x="150" y="220" width="230" height="20" fill="#1c1c1c" opacity=".15"/>
+  <rect x="200" y="140" width="130" height="110" fill="#f2b93d"/>
+  <polygon points="185,140 250,90 315,140" fill="#e2542c"/>
+  <rect x="235" y="100" width="30" height="30" fill="#e2542c"/>
+  <circle cx="250" cy="115" r="12" fill="#fff"/>
+  <rect x="212" y="160" width="24" height="24" fill="#7fc4e8"/>
+  <rect x="294" y="160" width="24" height="24" fill="#7fc4e8"/>
+  <rect x="238" y="200" width="24" height="40" fill="#5a9bc7"/>
+  <rect x="205" y="205" width="20" height="18" fill="#7fc4e8"/>
+  <rect x="285" y="205" width="20" height="18" fill="#7fc4e8"/>
+  <rect x="205" y="145" width="90" height="16" fill="#c62828"/>
+  <text x="250" y="157" font-family="Montserrat, sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle" letter-spacing="1">SCHOOL</text>
+  <text x="250" y="290" font-family="Montserrat, sans-serif" font-size="13" fill="#7a4a44" text-anchor="middle">Replace with education project photo</text>
+</svg>

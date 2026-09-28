@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+  <rect width="400" height="260" fill="#dce7ef"/>
+  <rect y="190" width="400" height="70" fill="#8a99a3"/>
+  <g fill="#3a5a73">
+    <rect x="40" y="150" width="46" height="40"/>
+    <rect x="90" y="140" width="46" height="50"/>
+    <rect x="140" y="155" width="46" height="35"/>
+  </g>
+  <g fill="#c94b3d">
+    <rect x="200" y="145" width="46" height="45"/>
+    <rect x="250" y="155" width="46" height="35"/>
+  </g>
+  <path d="M60 90 L340 60 L300 100 L80 110 Z" fill="#eef2f5" stroke="#5a6b78" stroke-width="2"/>
+  <text x="200" y="235" font-family="Montserrat, sans-serif" font-size="15" fill="#3a5a73" text-anchor="middle">Replace with export/logistics photo</text>
+</svg>

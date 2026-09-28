@@ -123,26 +123,12 @@
       <h2>Common questions about SIF&rsquo;s work.</h2>
     </div>
     <div class="reveal">
-      <div class="accordion-item">
-        <button class="accordion-head"><h4>Is SIF a government agency?</h4><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg></button>
-        <div class="accordion-body"><p>Yes. SIF was incorporated in 1998 by the Government of Ghana together with the African Development Bank and the United Nations Development Programme, and operates as an independent, pro-poor development institution.</p></div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-head"><h4>How can my organisation partner with SIF?</h4><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg></button>
-        <div class="accordion-body"><p>MMDAs, development partners, DFIs, the private sector and not-for-profit institutions can reach out via our <a href="/contact" style="color:var(--emerald);font-weight:700;">Contact page</a> to discuss potential collaboration.</p></div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-head"><h4>How do I submit a complaint or report a concern?</h4><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg></button>
-        <div class="accordion-body"><p>Use the <a href="/complaint" style="color:var(--emerald);font-weight:700;">Submit a Complaint</a> portal for a guided 7-step process, call our toll-free line on 0800 600 555, or visit your nearest zonal office.</p></div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-head"><h4>Where are SIF&rsquo;s zonal offices located?</h4><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg></button>
-        <div class="accordion-body"><p>SIF operates through four zones — Savannah Belt, Forest &amp; Transition, Western Coast and Eastern Seaboard — covering all sixteen regions. See the full list on our <a href="/departments#zones" style="color:var(--emerald);font-weight:700;">Departments &amp; Units page</a>.</p></div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-head"><h4>Can I apply for MSME microcredit through SIF?</h4><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg></button>
-        <div class="accordion-body"><p>SIF&rsquo;s microcredit facilities, such as the US$4M facility under PSDPEP, are delivered in partnership with implementing institutions. Contact your nearest zonal office for current eligibility and application windows.</p></div>
-      </div>
+      @foreach(($faqs ?? \App\Models\Faq::fallbackFrontendFaqs()) as $faq)
+        <div class="accordion-item">
+          <button class="accordion-head"><h4>{{ $faq['question'] }}</h4><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v12M2 8h12"/></svg></button>
+          <div class="accordion-body"><p>{{ $faq['answer'] }}</p></div>
+        </div>
+      @endforeach
     </div>
   </div>
 </section>

@@ -1,4 +1,4 @@
-<footer>
+<footer id="footer">
   <div class="container">
     <div class="foot-grid">
       <div class="foot-brand">

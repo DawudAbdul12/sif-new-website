@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260">
+  <rect width="400" height="260" fill="#2a2420"/>
+  <rect x="0" y="180" width="400" height="80" fill="#1a1613"/>
+  <rect x="130" y="150" width="140" height="60" rx="4" fill="#3a332c"/>
+  <ellipse cx="200" cy="150" rx="34" ry="16" fill="#ff8a3d"/>
+  <ellipse cx="200" cy="150" rx="20" ry="9" fill="#ffd166"/>
+  <g stroke="#ff8a3d" stroke-width="3" opacity=".7">
+    <line x1="190" y1="120" x2="185" y2="95"/>
+    <line x1="200" y1="118" x2="200" y2="90"/>
+    <line x1="210" y1="120" x2="216" y2="95"/>
+  </g>
+  <text x="200" y="235" font-family="Montserrat, sans-serif" font-size="15" fill="#c9a45a" text-anchor="middle">Replace with smelting photo</text>
+</svg>

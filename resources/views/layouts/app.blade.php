@@ -84,7 +84,7 @@
   <meta name="robots" content="{{ $seoRobots }}">
   <meta name="author" content="{{ $siteName }}">
   <meta name="application-name" content="SIF Ghana">
-  <meta name="theme-color" content="#073B2A">
+  <meta name="theme-color" content="#06105A">
   <link rel="canonical" href="{{ $seoCanonical }}">
   <meta property="og:locale" content="en_GH">
   <meta property="og:site_name" content="{{ $siteName }}">
@@ -144,8 +144,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <style>
-    .sticky-apply-cta{position:fixed;right:20px;bottom:20px;z-index:2000;display:inline-flex;align-items:center;justify-content:center;min-height:0;padding:12px 24px;border-radius:30px;background:#28a745;color:#fff;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;font-weight:700;box-shadow:0 4px 8px rgba(0,0,0,.2);border:0;white-space:nowrap;text-decoration:none;cursor:pointer;transition:background-color .3s ease,transform .18s ease,box-shadow .18s ease;}
-    .sticky-apply-cta:hover{background:#218838;text-decoration:none;transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.25);}
+    .sticky-apply-cta{position:fixed;right:20px;bottom:20px;z-index:2000;display:inline-flex;align-items:center;justify-content:center;min-height:0;padding:12px 24px;border-radius:30px;background:var(--emerald);color:#fff;font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;font-weight:700;box-shadow:0 4px 8px rgba(0,0,0,.2);border:0;white-space:nowrap;text-decoration:none;cursor:pointer;transition:background-color .3s ease,transform .18s ease,box-shadow .18s ease;}
+    .sticky-apply-cta:hover{background:var(--forest-2);text-decoration:none;transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.25);}
     @media (max-width:600px){.sticky-apply-cta{left:auto;right:8px;bottom:15px;width:112px;padding:10px 14px;font-size:14px;}}
     @media (max-width:600px){body.has-cookie-banner .sticky-apply-cta{bottom:182px;}}
   </style>

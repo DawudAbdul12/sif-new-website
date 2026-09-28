@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <rect width="1600" height="900" fill="#fafaf8"/>
+  <rect x="20" y="20" width="1560" height="860" fill="none" stroke="#dcded8" stroke-width="2" stroke-dasharray="10 8"/>
+  <g fill="#9aa192">
+    <rect x="700" y="120" width="200" height="46" rx="4"/>
+    <rect x="620" y="220" width="150" height="60" rx="4"/>
+    <rect x="825" y="220" width="150" height="60" rx="4"/>
+    <rect x="1030" y="220" width="150" height="60" rx="4"/>
+    <line x1="800" y1="166" x2="800" y2="220" stroke="#9aa192" stroke-width="3"/>
+    <line x1="695" y1="220" x2="1105" y2="220" stroke="#9aa192" stroke-width="3"/>
+  </g>
+  <text x="800" y="500" font-family="Montserrat, sans-serif" font-size="30" font-weight="700" fill="#6b7166" text-anchor="middle">Organogram chart placeholder</text>
+  <text x="800" y="545" font-family="Montserrat, sans-serif" font-size="18" fill="#8a9186" text-anchor="middle">Replace with images/organogram-chart.png (or .jpg)</text>
+</svg>

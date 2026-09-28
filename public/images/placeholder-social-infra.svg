@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 420">
+  <rect width="500" height="420" fill="#a9d2e8"/>
+  <rect y="300" width="500" height="120" fill="#c9a26b"/>
+  <g fill="#8ea34a" opacity=".6">
+    <ellipse cx="60" cy="300" rx="20" ry="55"/>
+    <ellipse cx="440" cy="300" rx="24" ry="60"/>
+  </g>
+  <g stroke="#3a3f38" stroke-width="4">
+    <line x1="180" y1="200" x2="150" y2="300"/>
+    <line x1="230" y1="200" x2="230" y2="300"/>
+    <line x1="150" y1="300" x2="230" y2="300"/>
+  </g>
+  <rect x="140" y="150" width="100" height="55" fill="#2c3e50" transform="rotate(-8 190 177)"/>
+  <g stroke="#3a3f38" stroke-width="5" fill="none">
+    <rect x="330" y="210" width="70" height="90" fill="#3a3f38"/>
+    <line x1="365" y1="210" x2="310" y2="150"/>
+    <line x1="365" y1="210" x2="420" y2="150"/>
+    <line x1="310" y1="150" x2="420" y2="150"/>
+  </g>
+  <circle cx="255" cy="310" r="10" fill="#3a6ea5"/>
+  <rect x="250" y="300" width="10" height="20" fill="#3a6ea5"/>
+  <text x="250" y="380" font-family="Montserrat, sans-serif" font-size="14" fill="#2f3a2a" text-anchor="middle">Replace with social infrastructure photo</text>
+</svg>

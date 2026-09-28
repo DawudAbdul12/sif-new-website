@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420">
+  <rect width="1200" height="420" fill="#1c1c1a"/>
+  <g fill="#cea437">
+    <rect x="80" y="260" width="140" height="60" rx="4"/>
+    <rect x="230" y="260" width="140" height="60" rx="4"/>
+    <rect x="380" y="260" width="140" height="60" rx="4"/>
+    <rect x="155" y="200" width="140" height="60" rx="4"/>
+    <rect x="305" y="200" width="140" height="60" rx="4"/>
+    <rect x="230" y="140" width="140" height="60" rx="4"/>
+  </g>
+  <g fill="#e6c568" opacity=".8">
+    <rect x="700" y="260" width="140" height="60" rx="4"/>
+    <rect x="850" y="260" width="140" height="60" rx="4"/>
+    <rect x="1000" y="260" width="140" height="60" rx="4"/>
+    <rect x="775" y="200" width="140" height="60" rx="4"/>
+    <rect x="925" y="200" width="140" height="60" rx="4"/>
+    <rect x="850" y="140" width="140" height="60" rx="4"/>
+  </g>
+  <text x="600" y="380" font-family="Montserrat, sans-serif" font-size="20" fill="#a99457" text-anchor="middle">Replace with gold bars photo</text>
+</svg>

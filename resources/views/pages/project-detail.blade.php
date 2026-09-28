@@ -151,7 +151,11 @@
 @endsection
 
 @push('scripts')
-<script src="/js/sif-projects.js"></script>
+<script>
+var SIF_PROJECTS = @json($frontendProjects ?? []);
+var ZONE_COLORS = {a:"#D6A72C", b:"#087F5B", c:"#4F6F52", d:"#073B2A"};
+var ZONE_LABELS = {a:"Savannah Belt", b:"Forest & Transition", c:"Western Coast", d:"Eastern Seaboard"};
+</script>
 {{-- PHP slug injected so JS can load the correct project --}}
 <script>var PROJECT_SLUG = '{{ $slug }}';</script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
