@@ -91,6 +91,7 @@ class AppServiceProvider extends ServiceProvider
                     ->latest('published_at')
                     ->take(3)
                     ->get()
+                    ->toBase()
                     ->map(fn (CmsPost $post) => [
                         'title' => $post->title,
                         'label' => $post->categoryRelation?->name ?? $post->category ?? 'News',
@@ -105,6 +106,7 @@ class AppServiceProvider extends ServiceProvider
                     ->latest('published_at')
                     ->take(3)
                     ->get()
+                    ->toBase()
                     ->map(fn (PressRelease $release) => [
                         'title' => $release->title,
                         'label' => 'Press Release',
