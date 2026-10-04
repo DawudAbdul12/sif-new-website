@@ -1,6 +1,6 @@
 @php
 $isHome      = request()->routeIs('home');
-$isAbout     = request()->routeIs('about') || request()->routeIs('board') || request()->routeIs('leadership') || request()->routeIs('departments');
+$isAbout     = request()->routeIs('about') || request()->routeIs('pages.board') || request()->routeIs('leadership') || request()->routeIs('departments');
 $isProjects  = request()->routeIs('projects') || request()->routeIs('project-detail');
 $isResources = request()->routeIs('resources');
 $isNews      = request()->routeIs('news');
@@ -57,7 +57,7 @@ $isContact   = request()->routeIs('contact');
             </div>
             <div>
               <div class="mega-col-title">Leadership &amp; Structure</div>
-              <a class="mega-link" href="{{ route('board') }}">Board of Directors</a>
+              <a class="mega-link" href="{{ route('pages.board') }}">Board of Directors</a>
               <a class="mega-link" href="{{ route('leadership') }}#ceo">Chief Executive Officer</a>
               <a class="mega-link" href="{{ route('leadership') }}#management">Management Team</a>
               <a class="mega-link" href="{{ route('departments') }}#structure">Organisational Structure</a>
@@ -162,7 +162,7 @@ $isContact   = request()->routeIs('contact');
         <div class="m-sub">
           <a href="{{ route('about') }}">About SIF</a>
           <a href="{{ route('about') }}#mvv">Mission, Vision &amp; Values</a>
-          <a href="{{ route('board') }}">Board of Directors</a>
+          <a href="{{ route('pages.board') }}">Board of Directors</a>
           <a href="{{ route('leadership') }}#ceo">Chief Executive Officer</a>
           <a href="{{ route('leadership') }}#management">Management Team</a>
           <a href="{{ route('departments') }}#departments">Departments &amp; Units</a>

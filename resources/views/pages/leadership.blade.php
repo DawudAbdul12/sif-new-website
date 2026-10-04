@@ -83,17 +83,21 @@
   <div class="container">
     <div class="ceo-feature reveal">
       <div class="ceo-photo">
-        <img src="https://sifinghana.org/backend/images/uploads/IMG-20250124-WA0101.jpg1738238916.jpg" alt="Abass Nurudeen, ESQ" data-fallback loading="lazy">
+        <img src="{{ $ceoPerson?->photoUrl() ?? 'https://sifinghana.org/backend/images/uploads/IMG-20250124-WA0101.jpg1738238916.jpg' }}" alt="{{ $ceoPerson?->name ?? 'Chief Executive Officer' }}" data-fallback loading="lazy">
         <div class="ceo-badge">
-          <span>Chief Executive Officer</span>
-          <strong>Abass Nurudeen, ESQ</strong>
+          <span>{{ $ceoPerson?->position ?? 'Chief Executive Officer' }}</span>
+          <strong>{{ $ceoPerson?->name ?? 'Chief Executive Officer' }}</strong>
         </div>
       </div>
       <div class="ceo-content">
         <span class="eyebrow">Executive Leadership</span>
         <h2>Coordinating strategy, delivery and partner confidence.</h2>
-        <p>The Office of the CEO provides strategic direction and day-to-day oversight of the institution, coordinating across Finance, Procurement, Monitoring &amp; Evaluation, Micro Credit, Internal Audit, Administration and all four zonal offices.</p>
-        <p style="margin-top:14px;">Under his leadership, SIF has overseen the launch of GWYESCO — Ghana&rsquo;s first AfDB results-based financing operation — and the continued delivery of PSDPEP, IRDP II and SIF&rsquo;s broader poverty-reduction portfolio.</p>
+        @if($ceoPerson?->bio)
+          <div style="color:var(--ink-soft);font-size:15px;line-height:1.75;">{!! $ceoPerson->bio !!}</div>
+        @else
+          <p>The Office of the CEO provides strategic direction and day-to-day oversight of the institution, coordinating across Finance, Procurement, Monitoring &amp; Evaluation, Micro Credit, Internal Audit, Administration and all four zonal offices.</p>
+          <p style="margin-top:14px;">Under his leadership, SIF has overseen the launch of GWYESCO — Ghana&rsquo;s first AfDB results-based financing operation — and the continued delivery of PSDPEP, IRDP II and SIF&rsquo;s broader poverty-reduction portfolio.</p>
+        @endif
         <div class="ceo-highlights">
           <div class="ceo-highlight"><strong>4</strong><span>Operational zones coordinated nationwide</span></div>
           <div class="ceo-highlight"><strong>6</strong><span>Flagship programmes in the institutional portfolio</span></div>
@@ -116,14 +120,18 @@
       <div class="management-note">Profiles and photographs are sourced from SIF&rsquo;s current management listing and presented here in the site&rsquo;s refreshed visual system.</div>
     </div>
     <div class="premium-team-grid reveal-stagger">
-      <article class="premium-team-card reveal" style="--i:0"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/for_website_2.jpg1742986137-removebg-preview.png1743151474.png" alt="Prosper Puo-Ire" data-fallback loading="lazy"><div class="premium-team-role">Deputy CEO</div></div><div class="premium-team-body"><h3>Prosper Puo-Ire</h3><p>Supports executive coordination, development administration and institutional delivery.</p></div></article>
-      <article class="premium-team-card reveal" style="--i:1"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/Paa%20Yaw%202.jpg1757338869.jpg" alt="Paa Yaw Arkoh-Koomson" data-fallback loading="lazy"><div class="premium-team-role">Director for Finance and Accounting</div></div><div class="premium-team-body"><h3>Paa Yaw Arkoh-Koomson</h3><p>Leads financial management, accounting and compliance across SIF programmes.</p></div></article>
-      <article class="premium-team-card reveal" style="--i:2"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/Agbesi%20pic.JPG1742914873.JPG" alt="Kwaku Agbesi, PhD" data-fallback loading="lazy"><div class="premium-team-role">Procurement Specialist</div></div><div class="premium-team-body"><h3>Kwaku Agbesi, PhD</h3><p>Oversees procurement processes for transparent sourcing of goods, works and services.</p></div></article>
-      <article class="premium-team-card reveal" style="--i:3"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/macD.jpg1742389371.jpg" alt="MacDonald Acquah" data-fallback loading="lazy"><div class="premium-team-role">Monitoring &amp; Evaluation Specialist</div></div><div class="premium-team-body"><h3>MacDonald Acquah</h3><p>Tracks implementation progress, results and impact across SIF interventions.</p></div></article>
-      <article class="premium-team-card reveal" style="--i:4"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/heinz%20111.jpg1741883521.jpg" alt="Heinz Osei Karikari" data-fallback loading="lazy"><div class="premium-team-role">Zonal Coordinator - Zone 2</div></div><div class="premium-team-body"><h3>Heinz Osei Karikari</h3><p>Coordinates zonal delivery, local partnerships and field-level implementation support.</p></div></article>
-      <article class="premium-team-card reveal" style="--i:5"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/Togbe%202.jpg1742388941.jpg" alt="Moses Kwame Ohene" data-fallback loading="lazy"><div class="premium-team-role">Zonal Coordinator - Zone 3</div></div><div class="premium-team-body"><h3>Moses Kwame Ohene</h3><p>Supports project coordination, community engagement and zonal operations.</p></div></article>
-      <article class="premium-team-card reveal" style="--i:6"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/OFOSU%201.JPG1741867679.JPG" alt="Joseph Ofosu-Kwarteng" data-fallback loading="lazy"><div class="premium-team-role">Zonal Coordinator - Zone 4</div></div><div class="premium-team-body"><h3>Joseph Ofosu-Kwarteng</h3><p>Coordinates field operations and stakeholder support across assigned programme areas.</p></div></article>
-      <article class="premium-team-card reveal" style="--i:7"><div class="premium-team-photo"><img src="https://sifinghana.org/backend/images/uploads/IMG-20240924-WA0009.jpg1727182387.jpg" alt="Stella Arthur" data-fallback loading="lazy"><div class="premium-team-role">Administrative Officer</div></div><div class="premium-team-body"><h3>Stella Arthur</h3><p>Provides administrative coordination and institutional support for SIF operations.</p></div></article>
+      @foreach(($managementPeople ?? collect()) as $index => $person)
+        <article class="premium-team-card reveal" style="--i:{{ $index }}">
+          <div class="premium-team-photo">
+            <img src="{{ $person->photoUrl() }}" alt="{{ $person->name }}" data-fallback loading="lazy">
+            <div class="premium-team-role">{{ $person->position }}</div>
+          </div>
+          <div class="premium-team-body">
+            <h3>{{ $person->name }}</h3>
+            <p>{{ $person->brief_profile }}</p>
+          </div>
+        </article>
+      @endforeach
     </div>
   </div>
 </section>

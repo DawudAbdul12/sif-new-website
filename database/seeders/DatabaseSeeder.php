@@ -98,5 +98,8 @@ class DatabaseSeeder extends Seeder
                 'published_at' => now(),
             ]);
         });
+
+        $this->call(PublicDataSeeder::class);
+        $this->call(LiveSifWebsiteSeeder::class);
     }
 }

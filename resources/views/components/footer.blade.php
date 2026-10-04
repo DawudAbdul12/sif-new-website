@@ -17,7 +17,7 @@
         <ul>
           <li><a href="{{ route('about') }}">About SIF</a></li>
           <li><a href="{{ route('about') }}#mvv">Mission, Vision &amp; Values</a></li>
-          <li><a href="{{ route('board') }}">Board of Directors</a></li>
+          <li><a href="{{ route('pages.board') }}">Board of Directors</a></li>
           <li><a href="{{ route('leadership') }}">Leadership</a></li>
           <li><a href="{{ route('departments') }}">Departments &amp; Units</a></li>
           <li><a href="{{ route('departments') }}#zones">Zonal Offices</a></li>

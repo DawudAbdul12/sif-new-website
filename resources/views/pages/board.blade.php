@@ -139,24 +139,28 @@
     <div class="board-profile-head reveal">
       <div class="section-head">
         <span class="eyebrow">Board Member Profiles</span>
-        <h2>A profile system ready for official board names and photographs.</h2>
-        <p>The design below shows how board profiles will appear once individual member details are available from official SIF sources.</p>
+        <h2>Published board profiles.</h2>
+        <p>Board member details published through the CMS appear here automatically once approved.</p>
       </div>
-      <div class="board-profile-note">The live SIF Board page currently publishes the Board of Directors heading without individual member cards, so these are structured profile placeholders.</div>
+      <div class="board-profile-note">Manage board names, roles, biographies and photographs from the CMS People section.</div>
     </div>
 
     <article class="board-chair-card reveal">
       <div class="board-chair-photo">
-        <div class="board-avatar">BoD</div>
+        @if($boardChair?->photo_path)
+          <img src="{{ $boardChair->photoUrl() }}" alt="{{ $boardChair->name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" data-fallback loading="lazy">
+        @else
+          <div class="board-avatar">BoD</div>
+        @endif
         <div class="board-chair-label">
-          <span>Chairperson</span>
-          <strong>Board Chairperson</strong>
+          <span>{{ $boardChair?->position ?? 'Chairperson' }}</span>
+          <strong>{{ $boardChair?->name ?? 'Board Chairperson' }}</strong>
         </div>
       </div>
       <div class="board-chair-body">
         <span class="eyebrow">Featured Profile</span>
-        <h3>Name to be published</h3>
-        <p>The Chairperson profile can introduce the Board&rsquo;s leadership role, governance focus and strategic oversight responsibilities. When an official photograph is available, it can replace the monogram while preserving the same layout.</p>
+        <h3>{{ $boardChair?->name ?? 'Name to be published' }}</h3>
+        <p>{{ $boardChair?->brief_profile ?? 'The Chairperson profile can introduce the Board&rsquo;s leadership role, governance focus and strategic oversight responsibilities. When an official photograph is available, it can replace the monogram while preserving the same layout.' }}</p>
         <div class="board-profile-meta">
           <span>Strategic Oversight</span>
           <span>Governance Leadership</span>
@@ -166,25 +170,27 @@
     </article>
 
     <div class="board-member-grid reveal-stagger">
-      <article class="board-member-card reveal" style="--i:0">
-        <div class="board-member-photo"><div class="board-avatar">01</div><div class="board-member-role">Board Member</div></div>
-        <div class="board-member-body"><h3>Member Name</h3><p>Short governance bio, represented institution, committee role or area of oversight can appear here.</p></div>
-      </article>
-      <article class="board-member-card reveal" style="--i:1">
-        <div class="board-member-photo"><div class="board-avatar">02</div><div class="board-member-role">Board Member</div></div>
-        <div class="board-member-body"><h3>Member Name</h3><p>Use this space for official profile notes once confirmed by SIF or published annual reports.</p></div>
-      </article>
-      <article class="board-member-card reveal" style="--i:2">
-        <div class="board-member-photo"><div class="board-avatar">03</div><div class="board-member-role">Board Member</div></div>
-        <div class="board-member-body"><h3>Member Name</h3><p>The card supports names, roles, affiliations and a concise accountability-focused biography.</p></div>
-      </article>
-      <article class="board-member-card reveal" style="--i:3">
-        <div class="board-member-photo"><div class="board-avatar">04</div><div class="board-member-role">Board Member</div></div>
-        <div class="board-member-body"><h3>Member Name</h3><p>Replace this placeholder with official details when board composition is published.</p></div>
-      </article>
+      @forelse(($boardPeople ?? collect()) as $index => $person)
+        <article class="board-member-card reveal" style="--i:{{ $index }}">
+          <div class="board-member-photo">
+            @if($person->photo_path)
+              <img src="{{ $person->photoUrl() }}" alt="{{ $person->name }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;" data-fallback loading="lazy">
+            @else
+              <div class="board-avatar">{{ str($person->name)->substr(0, 2)->upper() }}</div>
+            @endif
+            <div class="board-member-role">{{ $person->position ?: 'Board Member' }}</div>
+          </div>
+          <div class="board-member-body"><h3>{{ $person->name }}</h3><p>{{ $person->brief_profile }}</p></div>
+        </article>
+      @empty
+        <article class="board-member-card reveal" style="--i:0">
+          <div class="board-member-photo"><div class="board-avatar">01</div><div class="board-member-role">Board Member</div></div>
+          <div class="board-member-body"><h3>Member Name</h3><p>Publish board member records in the CMS and they will appear here.</p></div>
+        </article>
+      @endforelse
     </div>
 
-    <div class="board-empty-note reveal">Once official board member information is supplied, each placeholder can be swapped for a real name, role, image and short profile without changing the page structure.</div>
+    <div class="board-empty-note reveal">Board profiles are powered by the CMS People module.</div>
   </div>
 </section>
 

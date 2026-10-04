@@ -29,36 +29,25 @@
 
     <div class="filter-row reveal">
       <span class="chip is-active">All</span>
-      <span class="chip">Programme Updates</span>
-      <span class="chip">Partnerships</span>
-      <span class="chip">Procurement</span>
-      <span class="chip">Community</span>
-      <span class="chip">Environmental &amp; Social</span>
+      @foreach(($newsCategories ?? collect(['Programme Updates', 'Partnerships', 'Procurement', 'Community', 'Environmental & Social'])) as $category)
+        <span class="chip">{{ $category }}</span>
+      @endforeach
     </div>
 
     <div class="news-grid reveal-stagger">
-      <a class="news-card news-feature reveal" style="--i:0" href="https://www.myjoyonline.com/ghana-launches-landmark-women-and-youth-employment-programme-to-create-over-30000-jobs/" target="_blank" rel="noopener">
-        <div class="nimg"><span class="ncat">Programme Update</span><img src="/images/gwyesco-launch.jpg" alt="" data-fallback loading="lazy"></div>
-        <div class="nbody">
-          <span class="ndate">June 2026</span>
-          <h3>Ghana launches GWYESCO to create 30,000+ jobs for women and youth</h3>
-          <p>A US$71.25M AfDB grant backs Ghana&rsquo;s first results-based financing programme, implemented by SIF in partnership with the Ministry of Finance.</p>
-          <span class="nmore">Read the story <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+      @forelse(($newsPosts ?? collect()) as $index => $post)
+        @include('partials.cms-news-card', ['post' => $post, 'index' => $index, 'featured' => $loop->first])
+      @empty
+        <div class="announce-strip reveal">
+          <span class="announce-pill"><span><strong>No published news yet</strong><span>Publish posts in the CMS and they will appear here.</span></span></span>
         </div>
-      </a>
-      <a class="news-card reveal" style="--i:1" href="https://sifinghana.org/page.php?id=3278" target="_blank" rel="noopener">
-        <div class="nimg"><span class="ncat">Partnerships</span><img src="https://sifinghana.org/backend/images/uploads/20260119_133435-2.jpg.jpeg1769166677.jpeg" alt="" data-fallback loading="lazy"></div>
-        <div class="nbody"><span class="ndate">January 2026</span><h3>BADEA appraisal mission meets with SIF &amp; Ministry of Finance</h3><p>A BADEA delegation visited SIF and the Ministry of Finance as part of an ongoing appraisal mission.</p><span class="nmore">Read more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="news-card reveal" style="--i:2" href="https://sifinghana.org/page.php?id=3255" target="_blank" rel="noopener">
-        <div class="nimg"><span class="ncat">Community</span><img src="https://sifinghana.org/backend/images/uploads/WhatsApp%20Image%202026-01-21%20at%204.15.48%20PM.jpeg1769013143.jpeg" alt="" data-fallback loading="lazy"></div>
-        <div class="nbody"><span class="ndate">January 2026</span><h3>SIF hands over UG Biotechnology Centre site to contractors</h3><p>Site handover marks the start of construction works at the University of Ghana Biotechnology Centre.</p><span class="nmore">Read more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
-      </a>
-      <a class="news-card reveal" style="--i:3" href="https://sifinghana.org/page.php?id=3253" target="_blank" rel="noopener">
-        <div class="nimg"><span class="ncat">Environmental &amp; Social</span><img src="https://sifinghana.org/backend/images/uploads/1751046892_8d6c9a3176e1e094_SIFNEWPROJECTESMP.jpg" alt="" data-fallback loading="lazy"></div>
-        <div class="nbody"><span class="ndate">2025</span><h3>Environmental &amp; Social Management Plan published</h3><p>SIF publishes the ESMP covering safeguard arrangements for its newest programme.</p><span class="nmore">Read more <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span></div>
-      </a>
+      @endforelse
     </div>
+    @if(($newsPosts ?? null) instanceof \Illuminate\Contracts\Pagination\Paginator)
+      <div class="mt-4">
+        @include('partials.compact-pagination', ['paginator' => $newsPosts])
+      </div>
+    @endif
 
     <div class="announce-strip reveal">
       <a class="announce-pill" href="/resources#procurement"><span class="aicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 3h6l-1 6h4l-9 12 2-9H7z"/></svg></span><span><strong>Procurement Notices</strong><span>Open tenders &amp; contractor opportunities</span></span></a>
