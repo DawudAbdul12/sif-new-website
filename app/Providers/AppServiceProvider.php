@@ -84,39 +84,37 @@ class AppServiceProvider extends ServiceProvider
                     ->get()
                 : collect());
 
-            $homePosts = Schema::hasTable('posts')
+            $homePosts = collect(Schema::hasTable('posts')
                 ? CmsPost::query()
                     ->published()
                     ->where('type', 'news')
                     ->latest('published_at')
                     ->take(3)
                     ->get()
-                    ->toBase()
-                    ->map(fn (CmsPost $post) => [
-                        'title' => $post->title,
-                        'label' => $post->categoryRelation?->name ?? $post->category ?? 'News',
-                        'date' => $post->published_at?->format('F Y'),
-                        'url' => $post->publicUrl(),
-                    ])
-                : collect();
+                    ->all()
+                : [])->map(fn (CmsPost $post) => [
+                    'title' => $post->title,
+                    'label' => $post->categoryRelation?->name ?? $post->category ?? 'News',
+                    'date' => $post->published_at?->format('F Y'),
+                    'url' => $post->publicUrl(),
+                ]);
 
-            $homePress = Schema::hasTable('press_releases')
+            $homePress = collect(Schema::hasTable('press_releases')
                 ? PressRelease::query()
                     ->published()
                     ->latest('published_at')
                     ->take(3)
                     ->get()
-                    ->toBase()
-                    ->map(fn (PressRelease $release) => [
-                        'title' => $release->title,
-                        'label' => 'Press Release',
-                        'date' => $release->published_at?->format('F Y'),
-                        'url' => route('pages.press'),
-                    ])
-                : collect();
+                    ->all()
+                : [])->map(fn (PressRelease $release) => [
+                    'title' => $release->title,
+                    'label' => 'Press Release',
+                    'date' => $release->published_at?->format('F Y'),
+                    'url' => route('pages.press'),
+                ]);
 
             $view->with('homeNewsItems', $homePosts
-                ->merge($homePress)
+                ->concat($homePress)
                 ->take(3)
                 ->values());
 
